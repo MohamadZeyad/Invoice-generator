@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Erbil</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<meta name="format-detection" content="telephone=no"/>
+	<link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- ----------------------------------------------------------------------
+TOP PART
+---------------------------------------------------------------------- -->
+
+	<div id="topPart">
+	
+
+<!-----------------------
+	RIGHT SIDE
+	--------------------- -->
+		<div id="rightSide">
+
+			<div class="div-top-left">
+			<p class="one h1-style">ASBAR Trading Company</p>
+			</div>
+
+			<div class="div-middle-left">
+			<p class="h3-style">Invoice To</p>
+			<p class="h2-style" id="centername-top"></p>
+			</div>
+			
+
+			<div class="line"></div>
+
+
+			<div class="div-bottom-left">
+			<span class="h3-style padding-right">Address: </span>
+			<span class="h3-style" id="address-top"></span><br>
+			<span class="h3-style padding-right">Phone: </span>
+			<span class="h3-style" id="phone-top"></span><br>
+			<span class="h3-style padding-right">Country: </span>
+			<span class="h3-style" id="country-top"></span><br>
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+<!-----------------------
+CENTER
+	--------------------- -->
+		<div id="center">
+
+<!-- 			<img src="logo nadeen copy.png"> -->
+			<img id="asbarlogo" src="asbar.png">
+
+			<p id="asbar-text">أسبار</p>
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+<!-----------------------
+LEFT SIDE
+--------------------- -->
+		<div id="leftSide">
+
+
+		<div class="div-top-left">
+
+			<p class="one h1-style white">Medical Nadeen Company</p>
+			</div>
+
+			<div class="div-top-right"></div>
+
+			<div class="div-middle-right">
+			<p class="h3-style">Total due</p>
+			<p class="h2-style" id="USD">USD $0</p>
+			</div>
+
+			<div class="line"></div>
+
+
+			<div class="div-bottom-right">
+			<span class="h3-style">Invoice No. </span>
+			<span class="h3-style" id="invoice-no"></span><br>
+			<span class="h3-style">Invoice date:</span>
+			<span class="h3-style" id="date-top">10/5/2019</span>
+			</div>
+		</div>
+	</div>
+
+
+<!-- ------------------------------------------------------------------------------- -->
+<!-- THE TABLE -->
+<!-- ------------------------------------------------------------------------------- -->
+<div class="table">
+		<div class="table-top-border"></div>
+
+		<table >
+
+			<th>
+				<td class="h2-style-table ">Item</td>	
+				<td class="h2-style-table ">Quantity</td>	
+				<td class="h2-style-table ">Price</td>	
+				<td class="h2-style-table-wider">Batch No.</td>	
+				<td class="h2-style-table ">Exp Date</td>	
+				<td class="h2-style-table ">Total</td>	
+			</th>
+
+		</table>
+
+
+
+</div>
+
+
+	
+<!-- ------------------------------------------------------------------------------- -->
+<!-- ATTACHING ELEMENTS -->
+<!-- ------------------------------------------------------------------------------- -->
+<div id="tablez">
+
+	<div id="separator"></div>
+
+
+
+	</div>
+
+
+
+<!-- ------------------------------------------------------------------------------- -->
+<!-- DISCOUNT PART-->
+<!-- ------------------------------------------------------------------------------- -->
+<div class="hide-seek" id="hide-seek">
+		
+
+		<table id="discount" class="table-no-border table-space-top">
+
+			<th class="table-no-border">
+				<td class="table-no-border"></td>	
+				<td class="table-no-border"></td>	
+				<td class="table-no-border"></td>	
+				<td class="table-no-border"></td>	
+				<td class="table-no-border h2-style-table">Sub Total:</td>
+				<td class="table-no-border h2-style-table"  id="subtotal-value"></td>	
+
+			</th>
+
+		</table>
+
+
+
+		<table class="table-no-border table-space-bottom">
+				<th>
+				<td></td>	
+				<td></td>	
+				<td></td>	
+				<td></td>	
+				<td class="h2-style-table">Discount:</td>	
+				<td class="h2-style-table" id="discount-value"></td>	
+
+			</th>
+		</table>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ----------------------------------------------------------------------
+GRAND TOTAL FOR TABLE
+---------------------------------------------------------------------- -->
+<div class="table">
+		
+
+		<table class="grandtotal">
+
+			<th class="grandtotal">
+				<td class="grandtotal"></td>	
+				<td class="grandtotal"></td>	
+				<td class="grandtotal"></td>	
+				<td class="grandtotal"></td>	
+				<td class="grandtotal">Grand Total:</td>	
+				<td id="totalcalc" class="grandtotal"></td>	
+			</th>
+
+		</table>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ----------------------------------------------------------------------
+INTERACTIVE PART
+---------------------------------------------------------------------- -->
+	<div class="container-interactive" id="container-interactive">	
+		<div class="interactive">
+
+			<select id="hyaldews">
+				<option class="1" value="all">All</option>
+				<option class="1" value="mid">Mid</option>
+				<option class="1" value="shine">Shine</option>
+				<option class="1" value="fine-5-18123">Fine-5-18123</option>
+				<option class="1" value="fine-6-19012">Fine-6-19012</option>
+				<option class="1" value="fine-10-19051">Fine-10-1905</option>
+			</select>
+			<br>
+
+			<input id="inputfield" placeholder="quantity">
+			<br>
+
+			<button onclick="add()">add</button>
+			<button onclick="foc()">add as FOC</button><br>
+			<button onclick="done()">Done</button><br>
+		
+		
+			<div class="infosection">
+				<select id="center-name-dropdown">
+<option class="2" value="Manesa-Beauty-Center">Manesa Beauty Center</option>
+<option class="2" value="Bahecsi-Beauty-Center">Bahecsi Beauty Center</option>
+<option class="2" value="dr-haval-clinic">Dr.Haval Clinic</option>
+<option class="2" value="zanko">Zanko Hospital</option>
+<option class="2" value="noorjran">Norgan Beauty Center</option>
+<!-- <option class="2" value="free">Free of Sale</option> -->
+<option class="2" value="free-erbil">Free of Sale Erbil</option>
+<option class="2" value="free-duhok">Free of Sale Duhok</option>
+<option class="2" value="direct-duhok">Direct Duhok</option>
+<option class="2" value="free-suli">Free of Sale Sulaymania</option>
+<option class="2" value="free-kirkuk">Free of Sale Kirkuk</option>
+<option class="2" value="ramzi">Dr.Ramzi-Manesa Beauty Cneter</option>
+<option class="2" value="marveen">Marveen Beauty Center</option>
+<option class="2" value="waleed-hadithi">Waleed Hadithi-Kirkuk</option>
+<option class="2" value="sami">Dr.Sami Wali Clinic</option>
+<option class="2" value="zanist">Dr.Zanist Clinic</option>
+<option class="2" value="sarmad">Dr.Sarmad Clinic</option>
+<option class="2" value="bahzad">Dr.Bahzad Clinic</option>
+<option class="2" value="ban">Dr.Ban Clinic</option>
+<option class="2" value="nadia">Dr.Nadia Clinic</option>
+<option class="2" value="xawer">Dr.Ahmed Kamal Xawer Clinic</option>
+<option class="2" value="kamil">Dr.Kamil Ahmed Clinic</option>
+<option class="2" value="la jour">La Jour Beauty Center</option>
+<option class="2" value="saman ameen">Saman Ameen</option>
+<option class="2" value="maram">Dr.Maram</option>
+<option class="2" value="wise">Wise Beauty Center</option>
+<option class="2" value="aeub">Dr.Aeub</option>
+<option class="2" value="asim">Dr.Asim Clinic</option>
+<option class="2" value="jalal">Dr.Jalal Clinic</option>
+<option class="2" value="alan">Dr.Alan Clinic</option>
+<option class="2" value="zryan">Dr.Zryan Clinic</option>
+				</select><br>
+				
+					
+		<!-- 	<input id="centername" type="text" placeholder="center name"> -->
+		
+	<!-- 		<input id="address" type="text" placeholder="Address"> -->
+			
+			<input id="date" type="text" placeholder="Todays date"><br>
+			<input id="manualInvoice" type="text" placeholder="Manual Invoice No."><br>
+			
+
+			<button onclick="addinfo()">Add Info</button><br>
+			<button onclick="due()" class="totaldue-button">Get Total Due</button><br>
+			<button onclick="hide()" class="hide-button">Hide</button><br>
+			<button onclick="save()" class="save-button">SAVE</button><br>
+			<input id="discountz" placeholder="discount"><br>
+			<button onclick="discount()" class="discount-button">Make Discount</button><br>
+		
+		
+			<!-- <input id="getByInvoiceNo" placeholder="enter invoice no."><br>
+			<button onclick="getInvoice()" class="save-button">Get Invoice</button><br> -->
+
+			<p id="dom"></p><br>
+
+			
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+<!-- ----------------------------------------------------------------------
+FOOTER
+---------------------------------------------------------------------- -->
+<div>
+	<div class="thankyou">
+
+		<p class="h1-style-footer">Thank you for your business</p>
+		<div class="centering-footer-line">
+		<div class="thankyouline"></div>
+		</div>
+
+
+
+
+		<div class="contact">
+
+			<div class="box1">
+				<p class="head">ADDRESS:</p>
+				<p class="body">Erbil-Ainkawa</p>
+			</div>
+
+
+
+
+			<div class="box2">
+				<p class="head">CONTACT:</p>
+				<p class="body" id="med-number">0750 237 9719</p>
+			</div>
+
+			<div class="box3">
+				<p class="head">NAME:</p>
+				<p class="body" id="med-name">Ayman Mamoon</p>
+			</div>
+
+
+		
+		</div>
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ----------------------------------------------------------------------
+LINKING JAVA
+---------------------------------------------------------------------- -->
+<!-- <script type="text/javascript" src="script.js"></script> -->
+<script src="script.js"></script>
+
+
+
+
+
+
+</body>
+</html>

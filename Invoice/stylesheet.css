@@ -1,0 +1,552 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+#rightSide {
+	margin-left: -45px;
+
+}
+
+
+
+
+#topPart {
+	display: grid;
+	grid-template-columns: 40% 20% 40%;
+	grid-gap: 40px;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 30px;
+
+
+}
+
+/*.lineLength {
+	width: 70%;
+
+}*/
+
+.padding-right {
+	padding-right: 5px;
+}
+
+
+img {
+	height: 200px;
+	widows: 200px;
+/*border: 1px black solid;*/
+margin-left: -40px;
+margin-top: -30px;
+}
+
+.image {
+	text-align: left;
+
+	margin-left: -20px
+}
+
+
+
+#asbarlogo {
+	margin-top: -100px;
+	margin-left: -50px;
+}
+
+
+#asbar-text {
+	font-family: 'Tajawal', sans-serif;
+
+
+font-size: 18px;
+margin-left: 33px;
+/*margin-top: -45px;*/
+}
+
+
+
+.save-button {
+	background-color: #EB3E58;
+	border-radius: 5px;
+	color: white;
+	padding: 10px;
+}
+
+
+.line {
+
+	height: 1px;
+	margin: 5px 0px;
+	width: 90%;
+	border-bottom: 1px solid black;
+}
+
+
+
+
+
+.one, .div-top-right {
+	text-align: left;
+/*	background-color: red;
+*/	margin-bottom: 80px;
+}
+
+
+
+
+.hide-button {
+	margin:20px 0px;
+	background-color: #8D63FF;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+
+}
+
+
+
+/*<!-- ------------------------------------------------------------------------------- -->
+THE FONTS
+<!-- ------------------------------------------------------------------------------- -->*/
+
+/*TOP PART FONTS*/
+
+.h1-style {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 30px;
+	font-weight: 500;
+
+
+
+}
+
+
+.h2-style {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+
+	
+}
+
+
+.h3-style {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 14px;
+	color: grey;
+	font-weight: 200;
+}
+
+
+
+.white {
+visibility: hidden;
+}
+
+
+/*TABLE FONTS*/
+
+
+.h1-style-table {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+
+	
+}
+
+
+.h2-style-table {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 11px;
+	color: #343434;
+	font-weight: 600;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+
+
+
+
+.h3-style-table {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 11px;
+	color: #343434;
+	font-weight: 300;
+}
+
+
+.h3-style-table-wider {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 11px;
+	color: #343434;
+	font-weight: 300;
+	width: 25%;
+}
+
+.h2-style-table-wider {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 11px;
+	color: #343434;
+	font-weight: 600;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 25%;
+
+}
+
+
+
+.h1-style-footer {
+
+	font-family: azo-sans-web,sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+
+}
+
+.h3-style-footer {
+
+	font-family: azo-sans-web,sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	background-color: grey;
+
+
+
+}
+
+	.grandtotal {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+
+
+
+	}
+
+
+
+
+
+
+/*<!-- ------------------------------------------------------------------------------- -->
+<!-- THE TABLE -->
+<!-- ------------------------------------------------------------------------------- -->*/
+
+table {
+width: 90%;
+
+	margin-right:50px;
+	margin-left: 50px;
+
+
+}
+
+	
+
+
+td {
+	text-align: left;
+	height: 20px;
+	width: 17%;
+	padding: 7px 0px;
+
+
+
+}
+
+
+
+
+.table-top-border {
+	height: 2px;
+	width: 90%;
+	background-color: black;	
+	margin-left: 50px;
+	margin-top: 60px;
+
+}
+
+.table-bottom-border {
+	height: 1px;
+	width: 728px;
+	background-color: #e3e3e3;	
+	margin-left: 100px;
+	/*margin-top: 50px;*/
+
+
+}
+
+.table-bottom-border-added-1 {
+	position: absolute;
+	top: 400px;
+	height: 1px;
+	width: 728px;
+	background-color: #e3e3e3;	
+	margin-left: 100px;
+
+
+}
+
+.grandtotal {
+	border-bottom-color: white;
+	padding-top: 70px;
+}
+
+/*.table-space-top {
+	margin-top: 30px;
+
+}*/
+
+/*.table-space-bottom {
+
+}*/
+
+
+
+.table-no-border {
+border-color: white;
+}
+
+table, th, td {
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+}
+
+
+
+
+.finish-line {
+
+	height: 2px;
+	width: 736px;
+	background-color: black;	
+	margin-left: 100px;
+	margin-top: -2px;
+
+
+}
+
+
+.hide-seek {
+	display: none;
+}
+/*<!-- ------------------------------------------------------------------------------- -->
+<!-- THE INTERACTIVE PART -->
+<!-- ------------------------------------------------------------------------------- -->*/
+
+
+.interactive {
+	text-align: center;
+	background-color: #e3e3e3;
+	height: 500px;
+	width: 300px;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding-top: 20px;
+	margin-bottom: 100px;	
+
+
+
+
+}
+
+.container-interactive {
+display: flex;
+justify-content: center;
+}
+
+
+#inputfield {
+	margin: 10px 0px;
+}
+
+
+input {
+margin: 5px;
+height: 20px;
+}
+
+button {
+	width: auto;
+	padding: 3px;
+}
+
+.infosection {
+	margin-top: 20px;
+}
+
+
+.totaldue-button {
+	margin-top: 50px;
+}
+
+/*
+
+----------------------------------------------------------------
+FOOTER PART
+----------------------------------------------------------------*/
+
+
+
+#grandtotalcontainer {
+	text-align: right;
+	margin-right: 184px;
+	margin-top: 30px;
+}
+
+.thankyou {
+	position: absolute;
+	top: 900px;
+	text-align: center;
+	width: 100%;
+
+	margin-bottom: 100px;
+/*	background-color: grey;*/
+	display: none;
+
+
+}
+
+.thankyouline {
+	height: 2px;
+	width: 400px;
+	border-bottom: 1px solid black;	
+	margin-top: 10px;
+}
+
+
+.centering-footer-line {
+	display: flex;
+	justify-content: center;
+}
+
+.contact {
+display: grid;
+grid-template-columns: 133px 133px 133px;
+margin-left: 310px;
+margin-right: 270px;
+}
+
+
+
+.head {
+	font-family: azo-sans-web,sans-serif;
+	font-size: 12px;
+	color: #343434;
+	font-weight: 600;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+
+
+.body {
+
+	font-family: azo-sans-web,sans-serif;
+	font-size: 10px;
+	color: grey;
+	font-weight: 200;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media print {
+
+	.contact {
+
+		margin-left: 210px;
+		margin-right: 270px;
+}
+
+
+.thankyou {
+	display: block;
+}
+
+
+
+}
+
+
+
+
+
+/*FONTs
+
+/*font-family: azo-sans-web,sans-serif;
+font-weight: 900;
+font-style: normal;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 900;
+font-style: italic;
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 700;
+font-style: normal;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 700;
+font-style: italic;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 400;
+font-style: italic;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 300;
+font-style: normal;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 300;
+font-style: italic;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 500;
+font-style: normal;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 500;
+font-style: italic;
+
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 400;
+font-style: normal;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 200;
+font-style: normal;
+
+
+font-family: azo-sans-web,sans-serif;
+font-weight: 200;
+font-style: italic;
+
+
+
+font-family: azo-sans-uber,sans-serif;
+font-weight: 400;
+font-style: normal;
+
