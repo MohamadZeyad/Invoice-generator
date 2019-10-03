@@ -1,46 +1,23 @@
-// ------------------------------------------------------------------------------
-// Global Elements
-// ------------------------------------------------------------------------------
-fetch("http://localhost:3002")
-  .then(res => res.json())
-  .then(data => {
-    var lastItem = data.length - 1;
-    preInvNo = parseInt(data[lastItem].invoicenumber, 10);
-    console.log(preInvNo);
-  });
+const getDate2 = () => {
+  const date = new Date();
 
-// 	function due() {
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
 
-// 	fetch('http://localhost:3002/due', {
-// 			method: 'post',
-// 			headers: {'content-type': 'application/json'},
-// 			body: JSON.stringify({
+  const fullDate = day + "/" + month + "/" + year;
 
-// 				CenterName: getCenterName,
+  document.getElementById("date-top").innerHTML = fullDate;
+};
+getDate2();
 
-// 			})
+const getElement = el => {
+  return document.getElementById(el);
+};
 
-// 	}).then(respone => respone.json())
-// 	.then((data) => {
-// 		totalDue = data;
-// 		console.log(totalDue);
-// 		const totalDueFormatted = formatNumber(totalDue);
-// 		const usd = document.getElementById("USD");
-// 		usd.innerHTML = ("USD $" + totalDueFormatted + ".00");
-
-// 	})
-
-// }
-
-const date = new Date();
-
-const day = date.getDate();
-const month = date.getMonth() + 1;
-const year = date.getFullYear();
-
-const fullDate = day + "/" + month + "/" + year;
-
-document.getElementById("date-top").innerHTML = fullDate;
+const getElementValue = el => {
+  return document.getElementById(el).value;
+};
 
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
@@ -71,10 +48,9 @@ var preInvNo;
 // ADD Function
 // ------------------------------------------------------------------------------
 function add() {
-  const quantity = document.getElementById("inputfield").value;
-  // console.log(quantity);
-  const hyaldews = document.getElementById("hyaldews").value;
-  // console.log(hyaldews);
+  const quantity = getElementValue("inputfield");
+
+  const hyaldews = getElementValue("hyaldews");
 
   var integer = parseInt(quantity, 10);
   console.log(integer);
