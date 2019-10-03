@@ -11,6 +11,10 @@ const getDate2 = () => {
 };
 getDate2();
 
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
+
 const getElement = el => {
   return document.getElementById(el);
 };
@@ -18,10 +22,6 @@ const getElement = el => {
 const getElementValue = el => {
   return document.getElementById(el).value;
 };
-
-function formatNumber(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-}
 
 const totalArray = [];
 const dollar = "$";
@@ -52,8 +52,9 @@ function add() {
 
   const hyaldews = getElementValue("hyaldews");
 
-  var integer = parseInt(quantity, 10);
-  console.log(integer);
+  //changing qunatity of type text into quantity of type Int
+  var quantityInt = parseInt(quantity, 10);
+  console.log(quantityInt);
 
   var name;
   var price;
@@ -71,7 +72,7 @@ function add() {
         (price = 63),
         (exp = "4/2021"),
         (batch = "FHDMD1CLN181102"),
-        (mid += integer);
+        (mid += quantityInt);
       break;
 
     case "shine":
@@ -79,7 +80,7 @@ function add() {
         (price = 68),
         (exp = "9/2021"),
         (batch = "HDSH2GLN19041"),
-        (shine += integer);
+        (shine += quantityInt);
       break;
 
     case "all":
@@ -87,7 +88,7 @@ function add() {
         (price = 65),
         (exp = "8/2021"),
         (batch = "HDAL1CLN19031"),
-        (oll += integer);
+        (oll += quantityInt);
       break;
 
     case "fine-5-18123":
@@ -95,7 +96,7 @@ function add() {
         (price = 61),
         (exp = "5/2021"),
         (batch = "HDFN1CLN18123"),
-        (fine += integer);
+        (fine += quantityInt);
 
       break;
 
@@ -104,7 +105,7 @@ function add() {
         (price = 61),
         (exp = "6/2021"),
         (batch = "HDFN1CLN19012"),
-        (fine += integer);
+        (fine += quantityInt);
       break;
 
     case "fine-10-19051":
@@ -112,14 +113,14 @@ function add() {
         (price = 61),
         (exp = "10/2021"),
         (batch = "HDFN1CLN19051"),
-        (fine += integer);
+        (fine += quantityInt);
       break;
   }
 
-  console.log(mid);
-  console.log(oll);
-  console.log(fine);
-  console.log(shine);
+  // console.log(mid);
+  // console.log(oll);
+  // console.log(fine);
+  // console.log(shine);
 
   const tablez = document.getElementById("tablez");
   const t = document.createElement("table");
@@ -132,35 +133,29 @@ function add() {
 
   const totalStyled = formatNumber(total);
 
+  const createCell = (element, value, styles) => {
+    tr.appendChild(element);
+    element.innerHTML = value;
+    element.classList.add(styles);
+  };
+
   const td = document.createElement("td");
-  tr.appendChild(td);
-  td.innerHTML = name;
-  td.classList.add("h3-style-table");
+  createCell(td, name, "h3-style-table");
 
   const td1 = document.createElement("td");
-  tr.appendChild(td1);
-  td1.innerHTML = quantity;
-  td1.classList.add("h3-style-table");
+  createCell(td1, quantity, "h3-style-table");
 
   const td2 = document.createElement("td");
-  tr.appendChild(td2);
-  td2.innerHTML = dollar + price;
-  td2.classList.add("h3-style-table");
+  createCell(td2, dollar + price, "h3-style-table");
 
   const td3 = document.createElement("td");
-  tr.appendChild(td3);
-  td3.innerHTML = batch;
-  td3.classList.add("h3-style-table-wider");
+  createCell(td3, batch, "h3-style-table-wider");
 
   const td4 = document.createElement("td");
-  tr.appendChild(td4);
-  td4.innerHTML = exp;
-  td4.classList.add("h3-style-table");
+  createCell(td4, exp, "h3-style-table");
 
   const td5 = document.createElement("td");
-  tr.appendChild(td5);
-  td5.innerHTML = dollar + totalStyled;
-  td5.classList.add("h3-style-table");
+  createCell(td5, dollar + totalStyled, "h3-style-table");
 
   totalArray.push(total);
 }
@@ -175,8 +170,8 @@ function foc() {
   const hyaldews = document.getElementById("hyaldews").value;
   // console.log(hyaldews);
 
-  var integer = parseInt(quantity, 10);
-  console.log(integer);
+  var quantityInt = parseInt(quantity, 10);
+  console.log(quantityInt);
 
   var name;
   var price;
@@ -194,7 +189,7 @@ function foc() {
         (price = 0),
         (exp = "4/2021"),
         (batch = "FHDMD1CLN181102"),
-        (mid += integer);
+        (mid += quantityInt);
       break;
 
     case "shine":
@@ -202,7 +197,7 @@ function foc() {
         (price = 0),
         (exp = "9/2021"),
         (batch = "HDSH2GLN19041"),
-        (shine += integer);
+        (shine += quantityInt);
       break;
 
     case "all":
@@ -210,7 +205,7 @@ function foc() {
         (price = 0),
         (exp = "8/2021"),
         (batch = "HDAL1CLN19031"),
-        (oll += integer);
+        (oll += quantityInt);
       break;
 
     case "fine-5-18123":
@@ -218,7 +213,7 @@ function foc() {
         (price = 0),
         (exp = "5/2021"),
         (batch = "HDFN1CLN18123"),
-        (fine += integer);
+        (fine += quantityInt);
 
       break;
 
@@ -227,7 +222,7 @@ function foc() {
         (price = 0),
         (exp = "6/2021"),
         (batch = "HDFN1CLN19012"),
-        (fine += integer);
+        (fine += quantityInt);
       break;
 
     case "fine-10-19051":
@@ -235,7 +230,7 @@ function foc() {
         (price = 0),
         (exp = "10/2021"),
         (batch = "HDFN1CLN19051"),
-        (fine += integer);
+        (fine += quantityInt);
       break;
   }
 
