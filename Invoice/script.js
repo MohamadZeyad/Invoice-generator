@@ -124,11 +124,12 @@ const addRow = () => {
   totalArray.push(total);
 };
 
+// ------------------------------------------------------------------------------
+// grabbing the info here
+// ------------------------------------------------------------------------------
 const totalArray = [];
 const dollar = "$";
 var total;
-
-// grabbing the info here
 var getTotal;
 var getInvoiceNo;
 var getDate = "14/6/2019";
@@ -201,22 +202,6 @@ function done() {
     console.log(manualInv);
   }
 
-  // if (invoiceNo === "") {
-
-  // 	// const newInvNo = preInvNo + 1;
-  // 	console.log("one")
-
-  // 	// const invoiceNumber = invoiceNo.innerHTML = newInvNo;
-
-  // } else {
-  // 	console.log("two")
-  // 	// const invoiceNo = document.getElementById("invoice-no");
-  // 	// const invValue = document.getElementById("manualInvoice").value;
-  // 	// const invoiceNumber = invoiceNo.innerHTML = invValue;
-
-  // }
-
-  // updating gobal variables getInvoiceNo and getTotal
   getInvoiceNo = invoiceNumber;
   getTotal = holder;
 }
@@ -543,7 +528,7 @@ function addinfo() {
 // ------------------------------------------------------------------------------
 
 function hide(medname, number) {
-  const interactiveSection = document.getElementById("container-interactive");
+  const interactiveSection = getElement("container-interactive");
   console.log(getCountry);
   switch (getCountry) {
     case "Erbil":
@@ -575,27 +560,28 @@ function discount() {
   // -------------------------
   const discount = document.getElementById("discountz").value / 100;
 
-  console.log("the total is " + total);
-  console.log("the discount is " + discount);
+  // console.log("the total is " + total);
+  // console.log("the discount is " + discount);
   const afterDiscount = discount * total;
   const endResult = total - afterDiscount;
-  console.log("amount discounted " + afterDiscount);
-  console.log("end result " + endResult);
+  // console.log("amount discounted " + afterDiscount);
+  // console.log("end result " + endResult);
 
   // -------------------------
   // DOM PART
   // -------------------------
 
-  const pickTable = document.getElementById("hide-seek");
+  const pickTable = getElement("hide-seek");
+  //hide-seek class sets the display to none, removing it will show discount field.
   pickTable.classList.remove("hide-seek");
 
-  const subtotal = document.getElementById("subtotal-value");
+  const subtotal = getElement("subtotal-value");
   const subtotalValue = total;
   const subtotalValueStyled = formatNumber(subtotalValue);
 
   subtotal.innerHTML = "$" + subtotalValueStyled;
 
-  const discountValue = document.getElementById("discount-value");
+  const discountValue = getElement("discount-value");
   const discountConverted = discount * 100;
   const discountText = discountConverted.toString();
   discountValue.innerHTML = discountText + "%";
@@ -611,150 +597,51 @@ function discount() {
 }
 
 // ------------------------------------------------------------------------------
-// SAVE FUNCTION
+// SERVER SIDE FUNCTIONALITY
 // ------------------------------------------------------------------------------
-function save() {
-  fetch("http://localhost:3002/save", {
-    method: "post",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      InvoiceNo: getInvoiceNo,
-      CenterName: getCenterName,
-      country: getCountry,
-      Datee: getDate,
-      Total: getTotal,
-      day: day,
-      month: month,
-      year: year,
-      oll: oll,
-      mid: mid,
-      fine: fine,
-      shine: shine
-    })
-  })
-    .then(respone => respone.json())
-    .then(console.log);
-}
 
-// function getInvoice() {
+// SAVES THE INVOICE TO THE SERVER
 
-// fetch('http://localhost:3002')
-// .then((res) => res.json())
-// .then((data) => {
-
-// 	var lastItem = data.length - 1
-// 	preInvNo = parseInt(data[lastItem].invoicenumber,10)
-// 	console.log(preInvNo);
-
-// 	})
-
+// function save() {
+//   fetch("http://localhost:3002/save", {
+//     method: "post",
+//     headers: { "content-type": "application/json" },
+//     body: JSON.stringify({
+//       InvoiceNo: getInvoiceNo,
+//       CenterName: getCenterName,
+//       country: getCountry,
+//       Datee: getDate,
+//       Total: getTotal,
+//       day: day,
+//       month: month,
+//       year: year,
+//       oll: oll,
+//       mid: mid,
+//       fine: fine,
+//       shine: shine
+//     })
+//   })
+//     .then(respone => respone.json())
+//     .then(console.log);
 // }
+//-----------------------------------------------
 
-// function updateTotalDue() {
+// GETTING TOTAL DUE FROM DATABASE
 
-// fetch('http://localhost:3002', {
-// 			method: 'post',
-// 			headers: {'content-type': 'application/json'},
-// 			body: JSON.stringify({
-
-// 				CenterName: getCenterName,
-// 				Datee: getDate
-
-// 			})
-
-// 	}).then(respone => respone.json())
-// 	.then(console.log);
-
-// fetch('http://localhost:3002')
-// .then((res) => res.json())
-// .then((data) => {
-
-// // totalDue = data;
-
-// 	console.log(data);
-
-// })
-
-// -----------------------------------------------------
-// GETTING TOTAL DUE
-// -----------------------------------------------------
-
-function due() {
-  fetch("http://localhost:3002/due", {
-    method: "post",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      CenterName: getCenterName
-    })
-  })
-    .then(respone => respone.json())
-    .then(data => {
-      totalDue = data;
-      console.log(totalDue);
-      const totalDueFormatted = formatNumber(totalDue);
-      const usd = document.getElementById("USD");
-      usd.innerHTML = "USD $" + totalDueFormatted + ".00";
-    });
-}
-
-//SETTING CLASS NAME TO AN ELEMENT
-// document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");
-
-// function add () {
-
-// const table = document.getElementById("table");
-// const text = document.createTextNode("hyalDew All");
-// const td = document.createElement("td");
-// const tr = document.createElement("tr");
-// table.appendChild(tr);
-// tr.appendChild(td);
-// td.appendChild(text);
-//  td.classList.add("h3-style-table");
-
-//NESTED DROPDOWN (dropdown that upon choosing an option, would update the second
-//drop down)
-
-// const hyaldews = document.getElementById("hyaldews").value;
-// console.log(hyaldews);
-
-// var price;
-// var exp;
-// var batch1;
-// var batch2;
-
-// switch (hyaldews) {
-// 	case "fine":
-// 	price = 20, exp = "10/2021", batch1 = "HDAL1CLN19012", batch2 = "FHDMD1CLN181101";
-// 	break;
-// 	case "mid":
-// 	price = 21, exp = "9/2021", batch1 = "GKFHHFS887HH";
-// 	break;
-// 	case "all":
-// 	price = 23, exp = "8/2021";
-// 	break;
-// 	case "shine":
-// 	price = 25, exp = "7/2021";
-// 	break;
-
-// }
-
-// console.log(price);
-// console.log(exp);
-// console.log(batch1);
-// console.log(batch2);
-
-// const batchDropDown = document.getElementById("batch");
-// const option = document.createElement("option");
-// batchDropDown.appendChild(option);
-// option.innerHTML = batch1;
-// option.setAttribute("value", "batch10");
-// option.setAttribute("id", "ids");
-// const it = document.getElementById("ids").value;
-// console.log(it);
-
-// }
-
-// function sum (a,b,c,d) {
-// 	const sum = a + b + c + d;
-// 	console.log(sum);
+// function due() {
+//   fetch("http://localhost:3002/due", {
+//     method: "post",
+//     headers: { "content-type": "application/json" },
+//     body: JSON.stringify({
+//       CenterName: getCenterName
+//     })
+//   })
+//     .then(respone => respone.json())
+//     .then(data => {
+//       totalDue = data;
+//       console.log(totalDue);
+//       const totalDueFormatted = formatNumber(totalDue);
+//       const usd = document.getElementById("USD");
+//       usd.innerHTML = "USD $" + totalDueFormatted + ".00";
+//     });
 // }
