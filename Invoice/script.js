@@ -23,19 +23,25 @@ const getElementValue = el => {
   return document.getElementById(el).value;
 };
 
-let bool = true;
+let bool;
+let buttonClicked;
+
+const evaluate = p => {
+  p === "add" ? (bool = true) : (bool = false);
+};
 
 const addClicked = () => {
-  bool = !bool;
+  buttonClicked = getElementValue("add");
+
+  evaluate(buttonClicked);
 };
 
 const focClicked = () => {
-  bool = !bool;
+  buttonClicked = getElementValue("foc");
+
+  evaluate(buttonClicked);
 };
 const addRow = () => {
-  // const addButton = getElementValue("add");
-  // const focButton = getElementValue("foc");
-
   const quantity = getElementValue("inputfield");
   const hyaldews = getElementValue("hyaldews");
   //changing qunatity of type text into quantity of type Int
@@ -93,10 +99,7 @@ const addRow = () => {
         (fine += quantityInt);
       break;
   }
-  // console.log(mid);
-  // console.log(oll);
-  // console.log(fine);
-  // console.log(shine);
+
   const tablez = document.getElementById("tablez");
   const t = document.createElement("table");
   const tr = document.createElement("tr");
@@ -125,7 +128,7 @@ const addRow = () => {
 };
 
 // ------------------------------------------------------------------------------
-// grabbing the info here
+// grabbing the info here (STATE)
 // ------------------------------------------------------------------------------
 const totalArray = [];
 const dollar = "$";
@@ -146,11 +149,19 @@ var database;
 var totalDue = 0;
 
 var preInvNo;
+
+var centerNameText;
+var centerAddress;
+var centerPhone;
+var country;
 // ------------------------------------------------------------------------------
 // ADD Function
 // ------------------------------------------------------------------------------
 function add() {
+  addClicked();
   addRow();
+  addinfo();
+  done();
 }
 
 // ------------------------------------------------------------------------------
@@ -158,7 +169,10 @@ function add() {
 // ------------------------------------------------------------------------------
 
 function foc() {
+  focClicked();
   addRow();
+  addinfo();
+  done();
 }
 
 // ------------------------------------------------------------------------------
@@ -216,13 +230,7 @@ div.classList.add("finish-line");
 // ------------------------------------------------------------------------------
 
 function addinfo() {
-  var centerNameText;
-  var centerAddress;
-  var centerPhone;
-  var country;
-
-  const centerNameropdown = document.getElementById("center-name-dropdown")
-    .value;
+  const centerNameropdown = getElementValue("center-name-dropdown");
 
   switch (centerNameropdown) {
     case "Manesa-Beauty-Center":
@@ -378,13 +386,6 @@ function addinfo() {
         (country = "Sulaymania");
       break;
 
-    // case "duhok":
-    // centerNameText = "Duhok",
-    // centerAddress = "",
-    // centerPhone = "",
-    // country = "Duhok";
-    // break;
-
     case "aeub":
       (centerNameText = "Dr.Aeub Abdulhama"),
         (centerAddress = "Aynda pharmacy-Orzdi street"),
@@ -483,25 +484,20 @@ function addinfo() {
       break;
   }
 
-  const dateEntry = document.getElementById("date").value;
+  const dateEntry = getElementValue("date");
 
-  const centerName = document.getElementById("center-name-dropdown").value;
-  getCenterName = centerName;
-  console.log(getCenterName);
+  const centerName = getElementValue("center-name-dropdown");
 
-  const phone = document.getElementById("phone-top");
+  const phone = getElement("phone-top");
   phone.innerHTML = centerPhone;
 
-  const addressField = document.getElementById("address-top");
+  const addressField = getElement("address-top");
   addressField.innerHTML = centerAddress;
 
-  document.getElementById("centername-top").innerHTML = centerNameText;
+  getElement("centername-top").innerHTML = centerNameText;
 
-  const countryEntry = document.getElementById("country-top");
-
+  const countryEntry = getElement("country-top");
   countryEntry.innerHTML = country;
-
-  getCountry = country;
 
   if (dateEntry === "") {
     const date = new Date();
@@ -511,15 +507,11 @@ function addinfo() {
     const year = date.getFullYear();
 
     const fullDate = day + "/" + month + "/" + year;
-    // console.log(fullDate);
 
-    document.getElementById("date-top").innerHTML = fullDate;
-
-    getDate = fullDate;
+    getElement("date-top").innerHTML = fullDate;
   } else {
-    const date1 = document.getElementById("date-top");
+    const date1 = getElement("date-top");
     date1.innerHTML = dateEntry;
-    getDate = dateEntry;
   }
 }
 
