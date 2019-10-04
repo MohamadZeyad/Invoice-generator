@@ -183,9 +183,9 @@ function done() {
 
   const numTextStyled = formatNumber(holderText);
 
-  const totalcalc = document.getElementById("totalcalc");
+  const grandtotal = document.getElementById("grandtotal");
 
-  totalcalc.innerHTML = dollar + numTextStyled;
+  grandtotal.innerHTML = dollar + numTextStyled;
 
   // const randomNumber = Math.floor(Math.random() * 10000);
   // console.log(randomNumber);
@@ -554,94 +554,47 @@ function hide(medname, number) {
 // ------------------------------------------------------------------------------
 // DISCOUNT function
 // ------------------------------------------------------------------------------
-function discount() {
-  // -------------------------
+function discounted() {
   // LOGICAL PART
   // -------------------------
-  const discount = document.getElementById("discountz").value / 100;
+  //grabbing the value of the discount input field
+  const selectDiscountInput = getElementValue("discountz");
+  //converting entered discount amount form a whole number to a decimal number
+  const discountInputDecimal = selectDiscountInput / 100;
 
-  // console.log("the total is " + total);
-  // console.log("the discount is " + discount);
-  const afterDiscount = discount * total;
-  const endResult = total - afterDiscount;
-  // console.log("amount discounted " + afterDiscount);
-  // console.log("end result " + endResult);
+  //getting discountAmount after discount by multiplying total * discountEntryDecimal
+  const discountAmount = discountInputDecimal * total;
+  const endResultAfterDiscount = total - discountAmount;
 
-  // -------------------------
   // DOM PART
   // -------------------------
-
+  //grabbing the hidden table that holds the discount information
   const pickTable = getElement("hide-seek");
-  //hide-seek class sets the display to none, removing it will show discount field.
+  //removing hide-seek class that sets div to hidden, which will make div visible on click
   pickTable.classList.remove("hide-seek");
-
+  //grabbing the subtotal element
   const subtotal = getElement("subtotal-value");
+  //setting subtotal value to the total before discount
   const subtotalValue = total;
+  //corrects subtotal value to a whole number
   const subtotalValueStyled = formatNumber(subtotalValue);
-
+  //adding dollar sign to the subtotal
   subtotal.innerHTML = "$" + subtotalValueStyled;
-
+  //grabbing the div that will hold percentage of discount
   const discountValue = getElement("discount-value");
-  const discountConverted = discount * 100;
+  //converting the decimal value to a whole number
+  const discountConverted = discountInputDecimal * 100;
+  //converting whole number from an integer to a string
   const discountText = discountConverted.toString();
+  //adding perentage sign to the whole number to show amount of discount in percentage
   discountValue.innerHTML = discountText + "%";
+  //grabbing grand total div
+  const totalAfterDiscount = getElement("grandtotal");
+  //adding decimal points to show grand total in cents
+  const numTextStyled = formatNumber(endResultAfterDiscount);
 
-  const totalAfterDiscount = document.getElementById("totalcalc");
-
-  const numTextStyled = formatNumber(endResult);
-
-  getTotal = endResult;
-
+  //converting subtotal in cents from an integer to a string
   const endResultText = numTextStyled.toString();
+  //setting the div to the value of grand total in cents as a string
   totalAfterDiscount.innerHTML = dollar + endResultText;
 }
-
-// ------------------------------------------------------------------------------
-// SERVER SIDE FUNCTIONALITY
-// ------------------------------------------------------------------------------
-
-// SAVES THE INVOICE TO THE SERVER
-
-// function save() {
-//   fetch("http://localhost:3002/save", {
-//     method: "post",
-//     headers: { "content-type": "application/json" },
-//     body: JSON.stringify({
-//       InvoiceNo: getInvoiceNo,
-//       CenterName: getCenterName,
-//       country: getCountry,
-//       Datee: getDate,
-//       Total: getTotal,
-//       day: day,
-//       month: month,
-//       year: year,
-//       oll: oll,
-//       mid: mid,
-//       fine: fine,
-//       shine: shine
-//     })
-//   })
-//     .then(respone => respone.json())
-//     .then(console.log);
-// }
-//-----------------------------------------------
-
-// GETTING TOTAL DUE FROM DATABASE
-
-// function due() {
-//   fetch("http://localhost:3002/due", {
-//     method: "post",
-//     headers: { "content-type": "application/json" },
-//     body: JSON.stringify({
-//       CenterName: getCenterName
-//     })
-//   })
-//     .then(respone => respone.json())
-//     .then(data => {
-//       totalDue = data;
-//       console.log(totalDue);
-//       const totalDueFormatted = formatNumber(totalDue);
-//       const usd = document.getElementById("USD");
-//       usd.innerHTML = "USD $" + totalDueFormatted + ".00";
-//     });
-// }
