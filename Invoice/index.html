@@ -242,12 +242,12 @@ INTERACTIVE PART
 
 			<button id="add" onclick="add() , addClicked()" value="add">add</button>
 			<button id="foc" onclick="foc(), focClicked()" value="foc">add as FOC</button><br>
-			<!-- <button onclick="done()">Done</button><br> -->
+		
 		
 		
 			<div class="infosection">
-				<select id="center-name-dropdown">
-<option class="2" value="Manesa-Beauty-Center">Manesa Beauty Center</option>
+				<select id="center-name-dropdown" onchange= "addinfo()"
+<option class="2" value="Manesa-Beauty-Center" selected="selected">Manesa Beauty Center</option>
 <option class="2" value="Bahecsi-Beauty-Center">Bahecsi Beauty Center</option>
 <option class="2" value="dr-haval-clinic">Dr.Haval Clinic</option>
 <option class="2" value="zanko">Zanko Hospital</option>
@@ -281,24 +281,21 @@ INTERACTIVE PART
 				</select><br>
 				
 					
-		<!-- 	<input id="centername" type="text" placeholder="center name"> -->
-		
-	<!-- 		<input id="address" type="text" placeholder="Address"> -->
+	
 			
-			<input id="date" type="text" placeholder="Todays date"><br>
-			<input id="manualInvoice" type="text" placeholder="Manual Invoice No."><br>
+			<input id="date" type="text" placeholder="Todays date" onchange="manualDate()"><br>
+			<input id="manualInvoice" type="text" placeholder="Manual Invoice No." onchange="invoiceNo()"><br>
 			
-<!-- 
-			<button onclick="addinfo()">Add Info</button><br> -->
+
 			<button onclick="due()" class="totaldue-button">Get Total Due</button><br>
-			<button onclick="hide()" class="hide-button">Hide</button><br>
-			<button onclick="save()" class="save-button">SAVE</button><br>
+			<button onclick="hide()" class="hide-button">Print</button><br>
+			
+		
 			<input id="discountz" placeholder="discount"><br>
 			<button onclick="discounted()" class="discount-button">Make Discount</button><br>
 		
 		
-			<!-- <input id="getByInvoiceNo" placeholder="enter invoice no."><br>
-			<button onclick="getInvoice()" class="save-button">Get Invoice</button><br> -->
+			
 
 			<p id="dom"></p><br>
 

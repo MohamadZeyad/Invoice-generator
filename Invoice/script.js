@@ -1,4 +1,7 @@
-const getDate2 = () => {
+//PRE-DEFINED FUNCTIONS THAT WILL MAKE CODING EASIER.
+//------------------------------------------------------
+
+const getDate = () => {
   const date = new Date();
 
   const day = date.getDate();
@@ -7,9 +10,8 @@ const getDate2 = () => {
 
   const fullDate = day + "/" + month + "/" + year;
 
-  document.getElementById("date-top").innerHTML = fullDate;
+  getElement("date-top").innerHTML = fullDate;
 };
-getDate2();
 
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
@@ -127,58 +129,6 @@ const addRow = () => {
   totalArray.push(total);
 };
 
-// ------------------------------------------------------------------------------
-// grabbing the info here (STATE)
-// ------------------------------------------------------------------------------
-const totalArray = [];
-const dollar = "$";
-var total;
-var getTotal;
-var getInvoiceNo;
-var getDate = "14/6/2019";
-var getCenterName;
-var getCountry;
-
-var oll = 0;
-var mid = 0;
-var fine = 0;
-var shine = 0;
-
-var database;
-
-var totalDue = 0;
-
-var preInvNo;
-
-var centerNameText;
-var centerAddress;
-var centerPhone;
-var country;
-// ------------------------------------------------------------------------------
-// ADD Function
-// ------------------------------------------------------------------------------
-function add() {
-  addClicked();
-  addRow();
-  addinfo();
-  done();
-}
-
-// ------------------------------------------------------------------------------
-// FOC Function
-// ------------------------------------------------------------------------------
-
-function foc() {
-  focClicked();
-  addRow();
-  addinfo();
-  done();
-}
-
-// ------------------------------------------------------------------------------
-// DONE Function
-// ------------------------------------------------------------------------------
-
 function done() {
   var holder = 0;
   var i;
@@ -201,33 +151,32 @@ function done() {
 
   grandtotal.innerHTML = dollar + numTextStyled;
 
-  // const randomNumber = Math.floor(Math.random() * 10000);
-  // console.log(randomNumber);
-  var manualInv = document.getElementById("manualInvoice").value;
-  const invoiceNo = document.getElementById("invoice-no");
-
-  if (manualInv === "") {
-    const newInvNo = preInvNo + 1;
-    console.log(newInvNo);
-
-    invoiceNumber = invoiceNo.innerHTML = newInvNo;
-  } else {
-    invoiceNumber = invoiceNo.innerHTML = manualInv;
-    console.log(manualInv);
-  }
-
-  getInvoiceNo = invoiceNumber;
   getTotal = holder;
 }
 
-const finishLine = document.getElementById("finish-line");
-const div = document.createElement("div");
-finishLine.appendChild(div);
-div.classList.add("finish-line");
+const invoiceNo = () => {
+  var manualInv = getElementValue("manualInvoice");
+  const invoiceNo = getElement("invoice-no");
+  invoiceNo.innerHTML = manualInv;
+};
 
-// ------------------------------------------------------------------------------
-// ADDINFO Function
-// ------------------------------------------------------------------------------
+const manualDate = () => {
+  const dateEntry = getElementValue("date");
+  if (dateEntry === "") {
+    const date = new Date();
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    const fullDate = day + "/" + month + "/" + year;
+
+    getElement("date-top").innerHTML = fullDate;
+  } else {
+    const date1 = getElement("date-top");
+    date1.innerHTML = dateEntry;
+  }
+};
 
 function addinfo() {
   const centerNameropdown = getElementValue("center-name-dropdown");
@@ -484,7 +433,7 @@ function addinfo() {
       break;
   }
 
-  const dateEntry = getElementValue("date");
+  // const dateEntry = getElementValue("date");
 
   const centerName = getElementValue("center-name-dropdown");
 
@@ -499,21 +448,372 @@ function addinfo() {
   const countryEntry = getElement("country-top");
   countryEntry.innerHTML = country;
 
-  if (dateEntry === "") {
-    const date = new Date();
+  // if (dateEntry === "") {
+  //   const date = new Date();
 
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
+  //   const day = date.getDate();
+  //   const month = date.getMonth() + 1;
+  //   const year = date.getFullYear();
 
-    const fullDate = day + "/" + month + "/" + year;
+  //   const fullDate = day + "/" + month + "/" + year;
 
-    getElement("date-top").innerHTML = fullDate;
-  } else {
-    const date1 = getElement("date-top");
-    date1.innerHTML = dateEntry;
-  }
+  //   getElement("date-top").innerHTML = fullDate;
+  // } else {
+  //   const date1 = getElement("date-top");
+  //   date1.innerHTML = dateEntry;
+  // }
 }
+// ------------------------------------------------------------------------------
+// grabbing the info here (STATE)
+// ------------------------------------------------------------------------------
+const totalArray = [];
+const dollar = "$";
+var total;
+var getTotal;
+var getInvoiceNo;
+var date = "14/6/2019";
+var getCenterName;
+var getCountry;
+
+var oll = 0;
+var mid = 0;
+var fine = 0;
+var shine = 0;
+
+var database;
+
+var totalDue = 0;
+
+var preInvNo;
+
+var centerNameText;
+var centerAddress;
+var centerPhone;
+var country;
+// ------------------------------------------------------------------------------
+// ADD BUTTON Function
+// ------------------------------------------------------------------------------
+
+getDate();
+addinfo();
+invoiceNo();
+
+function add() {
+  addClicked();
+  addRow();
+
+  done();
+}
+
+// ------------------------------------------------------------------------------
+// FOC BUTTON Function
+// ------------------------------------------------------------------------------
+
+function foc() {
+  focClicked();
+  addRow();
+
+  done();
+}
+
+// ------------------------------------------------------------------------------
+// DONE Function
+// ------------------------------------------------------------------------------
+
+const finishLine = document.getElementById("finish-line");
+const div = document.createElement("div");
+finishLine.appendChild(div);
+div.classList.add("finish-line");
+
+// ------------------------------------------------------------------------------
+// ADDINFO Function
+// ------------------------------------------------------------------------------
+
+// function addinfo() {
+//   const centerNameropdown = getElementValue("center-name-dropdown");
+
+//   switch (centerNameropdown) {
+//     case "Manesa-Beauty-Center":
+//       (centerNameText = "Manesa Beauty Center"),
+//         (centerAddress = "Ainkawa"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "Bahecsi-Beauty-Center":
+//       (centerNameText = "Bahcesi Beauty Center"),
+//         (centerAddress = "Doctors St."),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "zanko":
+//       (centerNameText = "Zanko Hospital"),
+//         (centerAddress = "Zanko"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "dr-haval-clinic":
+//       (centerNameText = "Dr.Haval Clinic"),
+//         (centerAddress = "40m Shahrazad Pharmacy"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "noorjran":
+//       (centerNameText = "Noorjan Beauty Center"),
+//         (centerAddress = "Ainkawa"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "ramzi":
+//       (centerNameText = "Manesa Beauty Center-Dr.Ramzi"),
+//         (centerAddress = "Ainkawa"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "free":
+//       (centerNameText = "Free of Sale"),
+//         (centerAddress = ""),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "marveen":
+//       (centerNameText = "Marveen Beauty Center"),
+//         (centerAddress = "Koya St. / Hewa city / villa No.E328"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "waleed-hadithi":
+//       (centerNameText = "Waleed Al-Hadithi Clinic"),
+//         (centerAddress = "Kirkuk / Doctors St. / Dr.Sheet Building"),
+//         (centerPhone = ""),
+//         (country = "Kirkuk");
+//       break;
+
+//     case "zanist":
+//       (centerNameText = "Dr.Zanist Clinic"),
+//         (centerAddress = "Parliament St. / Meddy Care 2 "),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "sami":
+//       (centerNameText = "Dr.Sami Wali Clinic"),
+//         (centerAddress = "40m St. / Top Med"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "sarmad":
+//       (centerNameText = "Dr.Sarmad Clinic"),
+//         (centerAddress = "Italian City 1"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "bahzad":
+//       (centerNameText = "Dr.Bahzad Clinic"),
+//         (centerAddress = "Italian City 1"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "ban":
+//       (centerNameText = "Dr.Ban Clinic"),
+//         (centerAddress = "40m St. / Al-Wafaa"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "Direct-Sales":
+//       (centerNameText = "Al-Jamal Scientific Bureau"),
+//         (centerAddress = "Basra"),
+//         (centerPhone = "");
+//       break;
+
+//     case "Free-Of-Sales-Erbil":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Erbil"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "Free-Of-Sales-Duhok":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Duhok"),
+//         (centerPhone = ""),
+//         (country = "Duhok");
+//       break;
+
+//     case "Free-Of-Sales-Kirkuk":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Kirkuk"),
+//         (centerPhone = ""),
+//         (country = "Kirkuk");
+//       break;
+
+//     case "Free-Of-Sales-Sulaymania":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Sulaymania"),
+//         (centerPhone = ""),
+//         (country = "Sulaymania");
+//       break;
+
+//     case "nadia":
+//       (centerNameText = "Dr.Nadia Clinic"),
+//         (centerAddress = "Algomhorea St. / Al-Razi M.C."),
+//         (centerPhone = ""),
+//         (country = "Kirkuk");
+//       break;
+
+//     case "xawer":
+//       (centerNameText = "Dr.Ahmed Kamal Xawer Clinic"),
+//         (centerAddress = "40m / Buxari mosque St. / Medicano Hospital"),
+//         (centerPhone = "0750 432 5887"),
+//         (country = "Erbil");
+//       break;
+
+//     case "kamil":
+//       (centerNameText = "Dr.Kamil Ahmed Clinic"),
+//         (centerAddress = ""),
+//         (centerPhone = ""),
+//         (country = "Sulaymania");
+//       break;
+
+//     case "aeub":
+//       (centerNameText = "Dr.Aeub Abdulhama"),
+//         (centerAddress = "Aynda pharmacy-Orzdi street"),
+//         (centerPhone = ""),
+//         (country = "Sulaymania");
+//       break;
+
+//     case "la jour":
+//       (centerNameText = "La Jour Beauty Center"),
+//         (centerAddress = "Vital city"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "free-erbil":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Erbil"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "free-duhok":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Duhok"),
+//         (centerPhone = ""),
+//         (country = "Duhok");
+//       break;
+
+//     case "direct-duhok":
+//       (centerNameText = "Direct Invoice"),
+//         (centerAddress = "Duhok"),
+//         (centerPhone = ""),
+//         (country = "Duhok");
+//       break;
+
+//     case "free-kirkuk":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Kirkuk"),
+//         (centerPhone = ""),
+//         (country = "Kirkuk");
+//       break;
+
+//     case "free-suli":
+//       (centerNameText = "Free of sale"),
+//         (centerAddress = "Sulaymania"),
+//         (centerPhone = ""),
+//         (country = "Sulaymania");
+//       break;
+
+//     case "saman ameen":
+//       (centerNameText = "Dr.Saman Ameen Clinic"),
+//         (centerAddress = "Doctors Street"),
+//         (centerPhone = ""),
+//         (country = "Sulaymania");
+//       break;
+
+//     case "maram":
+//       (centerNameText = "Dr.Maram Clinic"),
+//         (centerAddress = "Doctors Street"),
+//         (centerPhone = ""),
+//         (country = "Kirkuk");
+//       break;
+
+//     case "wise":
+//       (centerNameText = "Wise Beauty Center"),
+//         (centerAddress = "Baxtiari"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "asim":
+//       (centerNameText = "Dr.Asim Clinic"),
+//         (centerAddress = "Doctors St. /Almarkazi M.C."),
+//         (centerPhone = ""),
+//         (country = "Kirkuk");
+//       break;
+
+//     case "jalal":
+//       (centerNameText = "Dr.Jalal Clinic"),
+//         (centerAddress = "C.M.C Hospital"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+
+//     case "alan":
+//       (centerNameText = "Dr.Alan Clinic"),
+//         (centerAddress = "Dream City"),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+//     case "zryan":
+//       (centerNameText = "Dr.Zryan Clinic"),
+//         (centerAddress = " 40m/ Aya M.C."),
+//         (centerPhone = ""),
+//         (country = "Erbil");
+//       break;
+//   }
+
+//   const dateEntry = getElementValue("date");
+
+//   const centerName = getElementValue("center-name-dropdown");
+
+//   const phone = getElement("phone-top");
+//   phone.innerHTML = centerPhone;
+
+//   const addressField = getElement("address-top");
+//   addressField.innerHTML = centerAddress;
+
+//   getElement("centername-top").innerHTML = centerNameText;
+
+//   const countryEntry = getElement("country-top");
+//   countryEntry.innerHTML = country;
+
+//   if (dateEntry === "") {
+//     const date = new Date();
+
+//     const day = date.getDate();
+//     const month = date.getMonth() + 1;
+//     const year = date.getFullYear();
+
+//     const fullDate = day + "/" + month + "/" + year;
+
+//     getElement("date-top").innerHTML = fullDate;
+//   } else {
+//     const date1 = getElement("date-top");
+//     date1.innerHTML = dateEntry;
+//   }
+// }
 
 // ------------------------------------------------------------------------------
 // HIDE AND PRINT function
@@ -521,8 +821,8 @@ function addinfo() {
 
 function hide(medname, number) {
   const interactiveSection = getElement("container-interactive");
-  console.log(getCountry);
-  switch (getCountry) {
+  console.log(country);
+  switch (country) {
     case "Erbil":
       document.getElementById("med-name").innerHTML = "Ayman Mamoon";
       document.getElementById("med-number").innerHTML = "0750 237 9719";
@@ -541,6 +841,7 @@ function hide(medname, number) {
   interactiveSection.style.display = "none";
 
   window.print();
+  interactiveSection.style.display = "inline-block";
 }
 
 // ------------------------------------------------------------------------------

@@ -479,7 +479,9 @@ margin-right: 270px;
 
 }
 
-
+#update-button {
+	display: none;
+}
 
 
 
